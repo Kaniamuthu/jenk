@@ -12,13 +12,11 @@
 
     - name: Copy website files
       copy:
-        src: "{{ item }}"
+        src: /tmp/site/
         dest: /var/www/html/
         owner: www-data
         group: www-data
         mode: '0644'
-      with_fileglob:
-        - "/tmp/site/*"
 
     - name: Restart Apache
       service:
